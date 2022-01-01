@@ -78,7 +78,8 @@ exports.megaSena = async function(htmlResultados, saveHtmlToFile) {
 exports.lotoFacil = async function(htmlResultados, saveHtmlToFile) {
   if (!htmlResultados) {
     htmlResultados = await lotoFacil.downloadResultadosLotoFacil();
-    require('fs').writeFileSync(saveHtmlToFile, htmlResultados);
+    if (saveHtmlToFile)
+      require('fs').writeFileSync(saveHtmlToFile, htmlResultados);
     console.log('DONWNLOAD, concluido');
   }
 
@@ -90,7 +91,8 @@ exports.lotoFacil = async function(htmlResultados, saveHtmlToFile) {
 exports.quina = async function(htmlResultados, saveHtmlToFile) {
   if (!htmlResultados) {
     htmlResultados = await quina.downloadResultadosQuina();
-    require('fs').writeFileSync(saveHtmlToFile, htmlResultados);
+    if (saveHtmlToFile)
+      require('fs').writeFileSync(saveHtmlToFile, htmlResultados);
     console.log('DONWNLOAD, concluido');
   }
 
